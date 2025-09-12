@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Slider</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -12,17 +18,24 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <header><h1>IMAGE SLIDER</h1></header>
+    <header><h1>Image Slider</h1></header>
     <main>
       <div class="image-selector">
-        <label for="photos">Choose image</label>
-        <input
-          type="file"
-          accept="image/*"
-          name="photos"
-          id="photos"
-          multiple
-        />
+        <h2>Select Images</h2>
+        <label for="photos" class="upload-area">
+          <span class="material-symbols-outlined upload-icon">
+            arrow_shape_up
+          </span>
+          <p><strong>Upload</strong> or drag and drop images here</p>
+          <input
+            type="file"
+            accept="image/*"
+            name="photos"
+            id="photos"
+            multiple
+          />
+        </label>
+        <div class="preview-area" id="preview-area"></div>
       </div>
 
       <div class="slider-wrapper">
@@ -35,7 +48,7 @@
         </span>
       </div>
 
-      <button>View</button>
+      <button class="view-btn">View</button>
     </main>
 
     <script src="index.js" type="module"></script>

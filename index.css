@@ -3,14 +3,102 @@
   padding: 0px;
   box-sizing: border-box;
 }
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header{
+  width: 100%;
+  
+}
+main{
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-selector{
+  margin: 2rem 0px;
+  border: 1px solid black;
+  width: 100%;
+  max-width: 1000px;
+  height: 400px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.image-selector h2{
+  margin: 0px;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #111827;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  
+}
+.upload-area{
+  border: 2px dashed #cbd5e1;
+  border-radius:12px ;
+  background: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 250px;
+
+}
+.upload-area:hover{
+  background: #e2e8f0;
+  border: #64748b;
+}
+.upload-area input{
+  display: none;
+}
+.upload-area span{
+  font-size: 2.5rem;
+  margin-bottom:0.5em ;
+  color: #64748b;
+}
+.upload-area strong{
+  font-size: 1.8rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+}
+.upload-area p{
+  font-size: 1.2rem;
+  width: 200px;
+}
+
+
+
+h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem; /* (45px) */
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+
+  text-align: center;
+  height: 100px;
+}
+
 .show-image{
  
   display: flex;
-  width: 200px;
-  height: 100px;
+  width: 500px;
+  height: 250px;
   
   overflow: hidden;
-  border: 1px solid black;
+  border: 2px dotted rgb(3, 151, 196);
   align-items: center;
 position: relative;
 transition: transform 0.5s ease;
@@ -46,8 +134,10 @@ transition: transform 0.5s ease;
   background-color: black;
   cursor: pointer;
   z-index: 1;
+  user-select: none;
 }
 .forward{
+  user-select: none;
   position: absolute;
   right: 0px;
   font-size: 2rem;
@@ -60,4 +150,22 @@ transition: transform 0.5s ease;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+.view-btn{
+  margin: 2rem 0px;
+  font-size: 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  padding: 0.75rem 2rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-btn:hover{
+  background-color: rgb(3, 151, 196);
+  scale: 0.95;
 }
