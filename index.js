@@ -3,6 +3,10 @@ const showImage = document.getElementById("show-image")
 const backward = document.getElementById("backward")
 const forward = document.getElementById("forward")
 const currentImage = document.querySelector(".selected-image")
+const imageView = document.getElementById("view-btn")
+const mainSlider = document.getElementById("main-slider")
+const indicators = document.getElementById("indicator")
+
 const images = []
 let index = 0
 let totalImages = 0
@@ -16,6 +20,12 @@ selectedImage.addEventListener("change", (e)=>{
     renderImages()
 
 })
+
+imageView.addEventListener("click", () => {
+  console.log("clicked")
+  mainSlider.style.display = "block"
+})
+
 
 function countImages(){
    totalImages = document.querySelectorAll(".selected-image")

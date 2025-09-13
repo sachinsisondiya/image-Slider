@@ -104,6 +104,20 @@ position: relative;
 transition: transform 0.5s ease;
 
 }
+
+.big-show-image{
+ 
+  display: flex;
+  width: 1200px;
+  height: 550px;
+  
+  overflow: hidden;
+  border: 2px dotted rgb(3, 151, 196);
+  align-items: center;
+position: relative;
+transition: transform 0.5s ease;
+
+}
 .selected-image.show{
   opacity: 1;
       
@@ -168,4 +182,7 @@ transition: transform 0.5s ease;
 .view-btn:hover{
   background-color: rgb(3, 151, 196);
   scale: 0.95;
+}
+.main-slider{
+  display: none;
 }
