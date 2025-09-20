@@ -20,6 +20,9 @@ selectedImage.addEventListener("change", (e)=>{
     renderImages()
 
 })
+if(images.length > 0){
+ 
+}
 
 imageView.addEventListener("click", () => {
   console.log("clicked")
