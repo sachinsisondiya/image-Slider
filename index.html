@@ -20,7 +20,7 @@
   <body>
     <header><h1>Image Slider</h1></header>
     <main>
-      <div class="image-selector">
+      <div class="image-selector" id="image-selector">
         <h2>Select Images</h2>
         <label for="photos" class="upload-area">
           <span class="material-symbols-outlined upload-icon">
@@ -42,7 +42,7 @@
         <span class="material-symbols-outlined backward arrow" id="backward">
           chevron_backward
         </span>
-        <div class="big-show-image" id="show-image"></div>
+        <div class="show-image" id="show-image"></div>
         <span class="material-symbols-outlined forward arrow" id="forward">
           chevron_forward
         </span>
@@ -53,6 +53,7 @@
       </div>
 
       <button class="view-btn" id="view-btn">View</button>
+      <button class="close-btn" id="close-btn">Close</button>
     </main>
 
     <script src="index.js" type="module"></script>

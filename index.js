@@ -1,3 +1,4 @@
+
 const selectedImage = document.getElementById("photos")
 const showImage = document.getElementById("show-image")
 const backward = document.getElementById("backward")
@@ -6,11 +7,14 @@ const currentImage = document.querySelector(".selected-image")
 const imageView = document.getElementById("view-btn")
 const mainSlider = document.getElementById("main-slider")
 const indicators = document.getElementById("indicator")
+const closeBtn = document.getElementById("close-btn")
+const imageSelector = document.getElementById("image-selector")
 
 const images = []
 let index = 0
 let totalImages = 0
 let totalImageCount = 0
+let autoIndex  = 0
 
 selectedImage.addEventListener("change", (e)=>{
   for(let i =0 ;i<e.target.files.length;i++){
@@ -23,10 +27,23 @@ selectedImage.addEventListener("change", (e)=>{
 if(images.length > 0){
  
 }
-
+closeBtn.addEventListener("click" , () =>{
+  showImage.classList.remove("big-show-image")
+  showImage.classList.add('show-image')
+  imageSelector.style.display = "block"
+  imageView.style.display = "block"
+  closeBtn.style.display = "none"
+  
+})
 imageView.addEventListener("click", () => {
   console.log("clicked")
-  mainSlider.style.display = "block"
+  showImage.classList.remove('show-image')
+
+  showImage.classList.add('big-show-image')
+  imageSelector.style.display = "none"
+  imageView.style.display = "none"
+  closeBtn.style.display = "block"
+
 })
 
 
@@ -41,6 +58,17 @@ function newImage(index){
   })
 
 }
+
+const automaticSlide = setInterval(()=>{
+  if( images.length >0 && index < totalImageCount -1){
+    index++
+    newImage(index)
+  }
+
+
+} , 3000)
+clearInterval(automaticSlide)
+
 
 backward.addEventListener("click",()=>{
   console.log("clicked backward")
@@ -73,6 +101,4 @@ function renderImages(){
       
     }
   })
-  
- 
 }

@@ -116,6 +116,8 @@ transition: transform 0.5s ease;
   align-items: center;
 position: relative;
 transition: transform 0.5s ease;
+object-fit: cover;
+ 
 
 }
 .selected-image.show{
@@ -164,6 +166,20 @@ transition: transform 0.5s ease;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+.close-btn{
+  display: none;
+  margin: 1rem 0px;
+  font-size: 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  padding: 0.75rem 2rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 .view-btn{
   margin: 2rem 0px;
