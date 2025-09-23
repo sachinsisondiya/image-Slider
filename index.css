@@ -202,3 +202,26 @@ object-fit: cover;
 .main-slider{
   display: none;
 }
+.indicators{
+  margin: 1rem;
+ 
+  width: 250px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.fill{
+  background-color: black;
+  border-radius:50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.fill:hover{
+  background-color: white;
+  scale: 1.4;
+}
+.active{
+  background-color: white;
+  scale: 1.4;
+}

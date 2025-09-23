@@ -6,10 +6,10 @@ const forward = document.getElementById("forward")
 const currentImage = document.querySelector(".selected-image")
 const imageView = document.getElementById("view-btn")
 const mainSlider = document.getElementById("main-slider")
-const indicators = document.getElementById("indicator")
+const indicators = document.getElementById("indicators")
 const closeBtn = document.getElementById("close-btn")
 const imageSelector = document.getElementById("image-selector")
-
+ 
 const images = []
 let index = 0
 let totalImages = 0
@@ -24,17 +24,28 @@ selectedImage.addEventListener("change", (e)=>{
     renderImages()
 
 })
-if(images.length > 0){
- 
-}
 closeBtn.addEventListener("click" , () =>{
   showImage.classList.remove("big-show-image")
   showImage.classList.add('show-image')
   imageSelector.style.display = "block"
   imageView.style.display = "block"
   closeBtn.style.display = "none"
-  
 })
+
+function handleClick(e){
+  console.log(e.target.dataset.id)
+  index = Number(e.target.dataset.id)
+    document.querySelectorAll(".indicator").forEach(ind => {
+      ind.classList.remove("active")
+      if(Number(ind.dataset.id) === index){
+        ind.classList.add("active")
+      }
+  })
+  newImage(index)
+
+}
+
+
 imageView.addEventListener("click", () => {
   console.log("clicked")
   showImage.classList.remove('show-image')
@@ -43,6 +54,19 @@ imageView.addEventListener("click", () => {
   imageSelector.style.display = "none"
   imageView.style.display = "none"
   closeBtn.style.display = "block"
+  console.log(images.length)
+  indicators.innerHTML= images.map( (img ,i)=>{
+
+    return `<span class="material-symbols-outlined fill indicator" data-id="${i}">
+                  fiber_manual_record
+           </span>`
+
+  }).join('')
+
+  document.querySelectorAll(".indicator").forEach(ind =>{
+    ind.addEventListener("click" , handleClick)
+  })
+
 
 })
 
@@ -52,6 +76,7 @@ function countImages(){
    totalImageCount = totalImages.length
    console.log(totalImages[0].currentSrc)
 }
+
 function newImage(index){
   totalImages.forEach((img, idx) => {
     img.classList.toggle("show", idx === index)
@@ -63,11 +88,14 @@ const automaticSlide = setInterval(()=>{
   if( images.length >0 && index < totalImageCount -1){
     index++
     newImage(index)
+    if(index === totalImageCount -1){
+      clearInterval(automaticSlide )
+    }
   }
 
 
-} , 3000)
-clearInterval(automaticSlide)
+} , 4000)
+
 
 
 backward.addEventListener("click",()=>{
