@@ -9,12 +9,16 @@ const mainSlider = document.getElementById("main-slider")
 const indicators = document.getElementById("indicators")
 const closeBtn = document.getElementById("close-btn")
 const imageSelector = document.getElementById("image-selector")
- 
+indicators.style.display = "none" 
 const images = []
 let index = 0
 let totalImages = 0
 let totalImageCount = 0
 let autoIndex  = 0
+
+if(images.length === 0){
+  imageView.disabled = true
+}
 
 selectedImage.addEventListener("change", (e)=>{
   for(let i =0 ;i<e.target.files.length;i++){
@@ -22,6 +26,7 @@ selectedImage.addEventListener("change", (e)=>{
   }
    console.log(images)
     renderImages()
+    imageView.disabled = false
 
 })
 closeBtn.addEventListener("click" , () =>{
@@ -30,6 +35,10 @@ closeBtn.addEventListener("click" , () =>{
   imageSelector.style.display = "block"
   imageView.style.display = "block"
   closeBtn.style.display = "none"
+  images.length = 0
+  indicators.style.display="none"
+  showImage.innerHTML = ""
+  index = 0
 })
 
 function handleClick(e){
@@ -55,6 +64,7 @@ imageView.addEventListener("click", () => {
   imageView.style.display = "none"
   closeBtn.style.display = "block"
   console.log(images.length)
+  indicators.style.display="flex"
   indicators.innerHTML= images.map( (img ,i)=>{
 
     return `<span class="material-symbols-outlined fill indicator" data-id="${i}">
